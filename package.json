@@ -1,0 +1,19 @@
+{
+  "name": "screen-catcher",
+  "version": "1.0.0",
+  "description": "It is used to grab the screenshot/ recording of tabs using JavaScript/TypeScript",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "files": [
+    "/dist"
+  ],
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Krishna Chaitanya",
+  "license": "ISC",
+  "dependencies": {
+    "@types/w3c-image-capture": "^1.0.6",
+    "typescript": "^4.7.4"
+  }
+}
