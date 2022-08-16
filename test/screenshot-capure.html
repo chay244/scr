@@ -1,0 +1,52 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Test Package Page</title>
+    <script src="../dist/image-capture/image-capture.js"></script>
+    <script>
+      async function getImage(format) {
+        const value = await imageCapture(format);
+        console.log(value);
+      }
+    </script>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+      }
+      .container {
+        display: flex;
+        justify-content: space-between;
+      }
+      .base64-container {
+        width: 40vw;
+        height: 80vh;
+        border: 1px solid seagreen;
+      }
+
+      .blob-container {
+        width: 40vw;
+        height: 80vh;
+        border: 1px solid salmon;
+      }
+      .self-center {
+        justify-self: center;
+      }
+      .w-50 {
+        width: 50vw;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="base64-container"></div>
+      <div class="blob-container"></div>
+    </div>
+    <div class="container">
+      <button class="self-center" onclick="getImage('Base64')">Screenshot in Base64</button>
+      <button class="self-center" onclick="getImage('Blob')">Screenshot in Blob</button>
+    </div>
+  </body>
+</html>

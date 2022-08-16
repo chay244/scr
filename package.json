@@ -1,6 +1,6 @@
 {
   "name": "screen-catcher",
-  "version": "1.0.0",
+  "version": "1.0.4",
   "description": "It is used to grab the screenshot/ recording of tabs using JavaScript/TypeScript",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",

@@ -1,5 +1,10 @@
-async function captureImage() {
+import { SUPPORTED_IMAGE_FORMATS } from "../modals/formats";
+
+function imageCapture(format: 'Blob'): Promise<Blob>;
+function imageCapture(format: 'Base64'): Promise<string>;
+async function imageCapture(format: SUPPORTED_IMAGE_FORMATS = 'Blob') {
     try {
+
         const stream = await navigator.mediaDevices.getDisplayMedia({
             video: { mediaSource: 'screen' } as unknown as boolean,
         });
@@ -15,17 +20,19 @@ async function captureImage() {
         canvas.width = bitmap.width;
         canvas.height = bitmap.height;
         const context = canvas.getContext('2d');
-
         context?.drawImage(bitmap, 0, 0, canvas.width, canvas.height);
-        canvas.toBlob((blob) => {
-            console.log(blob);
-        });
 
-        const img = canvas.toDataURL();
-        console.log(img);
+        if (format === 'Blob') {
+            // canvas.getContext("bitmaprenderer").transferFromImageBitmap(bitmap);
+            return await new Promise((res) => canvas.toBlob(res));
+        }
+
+        if (format === 'Base64') {
+            return canvas.toDataURL();
+        }
     } catch (err) {
         console.log(err);
     }
 }
 
-export { captureImage }
+export { imageCapture }

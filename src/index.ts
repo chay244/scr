@@ -1,1 +1,1 @@
-export { captureImage } from './capture-image'
+export { imageCapture } from './image-capture/image-capture'
